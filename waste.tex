@@ -78,6 +78,17 @@
 \newcommand{\oneColumnWidth}{3.4in}
 \newcommand{\twoColumnWidth}{7.1in}
 \usepackage{caption} %for lableling a table as a figure
+\newcommand{\numberOfObservedProjects}{eight}
+\newcommand{\numberOfInterviews}{33}
+\newcommand{\durationOfResearchStudy}{two-year five-month}
+\newcommand{\durationOfResearchStudyPlural}{two-years and five-months}
+
+% http://tex.stackexchange.com/questions/12703/how-to-create-fixed-width-table-columns-with-text-raggedright-centered-raggedlef
+\usepackage{array}
+%\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+%\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+%\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+% \newcolumntype{LEFT}[1]{>{\raggedright\arraybackslash}p{#1}}
 
 
 % Some very useful LaTeX packages include:
@@ -355,10 +366,11 @@
 
 
 \begin{document}
+
 %
 % paper title
 % can use linebreaks \\ within to get better formatting as desired
-\title{Software Development Wastes}
+\title{Software Development Waste}
 
 
 % author names and affiliations
