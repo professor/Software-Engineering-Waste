@@ -11,7 +11,7 @@
 %% http://www.ctan.org/tex-archive/macros/latex/contrib/IEEEtran/
 %% and
 %% http://www.ieee.org/
-%%
+%%a
 %% Based on the original 1993 IEEEtran.cls, but with many bug fixes
 %% and enhancements (from both JVH and MDS) over the 1996/7 version.
 %%
