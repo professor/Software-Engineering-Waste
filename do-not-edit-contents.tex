@@ -1,6 +1,8 @@
 % Sample apostrophy's to remove team's 
 
 
+
+
 \begin{abstract}
 \textit{Context:} Since software development is a complex socio-technical activity that involves coordinating different disciplines and skill sets, it provides ample opportunities for waste to emerge. Waste is any activity that produces no value for the customer or user.
 
@@ -152,7 +154,11 @@ Pivotal Labs has practiced Extreme Programming \cite{BeckExtremeProgramming2004}
 We only observed teams at Pivotal Labs. Other teams, especially teams in other divisions, might have a different culture and follow different software practices.
 
 \subsection{Data Collection}
-This paper analyses data from three sources: 1) topics discussed in 91 retrospection meetings, 2) participant observation of \numberOfObservedProjects{} projects over \durationOfResearchStudyPlural{} and 3) interviews with Pivotal employees. Projects are de-identified to preserve client confidentiality:
+This paper analyses data from three sources: 1) topics discussed in 91 retrospection meetings, 2) participant observation of \numberOfObservedProjects{} projects over \durationOfResearchStudyPlural{} and 3) interviews with Pivotal employees. 
+\subsubsection{Participant Observation}
+The first author collected field notes while working as an engineer on  \numberOfObservedProjects{} projects. These notes describe individual and collective actions, capture what participants found interesting or problematic, and include anecdotes and observations.
+
+Projects are de-identified to preserve client confidentiality:
 
 \begin{itemize}
 \item Project Unum (two product managers, four developers) was a greenfield project providing a web front end for installation, configuring, and using a multi-node cluster with big data tools. 
@@ -164,8 +170,6 @@ This paper analyses data from three sources: 1) topics discussed in 91 retrospec
 \item Project Septem (two interaction designers, three product managers, twelve developers) was adding features and removing technical debt to an existing virtual machine management software.
 \item Project Octo (one product manager, four developers) added features for  workload management of a multi-node database.
 \end{itemize}
-\subsubsection{Participant Observation}
-The first author collected field notes while working as an engineer on all \numberOfObservedProjects{} projects. These notes describe individual and collective actions, capture what participants found interesting or problematic, and include anecdotes and observations. He further 
 \subsubsection{Interviews}
 The first author interviewed \numberOfInterviews{} interaction designers, product managers, and software engineers who had experience with Pivotal's software development process from five different Pivotal offices. Participants were not paid for their time.
 
@@ -192,16 +196,31 @@ Two researchers with first-hand experience of the projects coded the retro topic
 We often stopped to record new insights. When the categories began to stabilize, we compared each category against the other categories looking for relationships. Once we felt that the categories were stable, we performed a final review of each category to verify that the cards belonged to it. We continued theoretical sampling for removing waste in additional interviews and participant observations until no further waste-related categories were evident, i.e. theoretical saturation. 
 
 
-\begin{table}[t]
-\renewcommand{\arraystretch}{1.5}
+% \begin{table}[t]
+% \renewcommand{\arraystretch}{1.5}
+% \centering
+% \captionof{figure}{Example Retro Topic Index Card }
+% \label{exampleRetroTopicl}
+% % \begin{tabular}{|l|}
+% % height is 2.7 cm, so with 3 x 5 card, the width is 4.5 cm
+% \begin{tabular}{|p{4.5cm}|}
+% \hline
+% Topic: Legal \\ \\ Description: Waiting on Legal to \\ approve legal pages \\ \\ Id: 182 \hfill Project: Quattour\\ \hline
+% \end{tabular}
+% \end{table}
+
+\begin{figure}[t]
 \centering
-\captionof{figure}{Example Retro Topic Index Card }
+% \includegraphics[width=\oneColumnWidth{}]{waste_images/retro_index_card.png}
+\fbox{\includegraphics[width=6.7cm]{waste_images/retro_index_card.png}}
+\caption{Example Retro Topic Index Card}
 \label{exampleRetroTopicl}
-\begin{tabular}{|l|}
-\hline
-Topic: Legal \\ \\ Description: Waiting on Legal to approve legal pages \\ \\ Id: 182 Project: Quattour\\ \hline
-\end{tabular}
-\end{table}
+\end{figure}
+
+
+
+
+
 
 
 
@@ -298,7 +317,9 @@ Topic: Legal \\ \\ Description: Waiting on Legal to approve legal pages \\ \\ Id
 \centering
 \caption{Types of Software Development Waste}
 \label{Waste}
-\begin{tabular}{|p{1.7in}|p{1.9in}|p{3in}|}
+% \begin{tabular}{|p{1.2in}|p{1.9in}|p{3.5in}|} 
+\begin{tabular}{|p{1.5in}|p{1.9in}|p{3.2in}|}
+% \begin{tabular}{|p{1.7in}|p{1.9in}|p{3in}|} %original draft size
 % \begin{tabular}{|p{1.5in}|p{1.6in}|p{2.8in}|} %dissertation size
 \hline
 Waste  & Description & Observed Causes                                                                                                                                                                                                                                                                                                                                                                                                                     \\ \hline
@@ -320,8 +341,8 @@ Knowledge loss & The cost of re-acquiring information that the team once knew. &
 Knowledge loss from team churn \newline
 Knowledge solos 
 \\ \hline
-Waiting                               & The cost of idle time, often hidden by multi-tasking. The cost of not having the needed information or resources to get one's work done. & 
-Slow tests or unreliable tests \newline Unreliable acceptance environment \newline Missing information, people, or equipment                                                                                                                                                                                                                                                                            \\ \hline
+Waiting                               & The cost of idle time, often hidden by multi-tasking. & 
+Slow tests or unreliable tests \newline Unreliable acceptance environment \newline Missing needed information, people, or equipment                                                                                                                                                                                                                                                                         \\ \hline
 Ineffective communication             & The cost of incomplete, incorrect, misleading, inefficient, or absent communication.                         & 
 Team size is too large \newline Asynchronous communication (distributed teams; distributed stakeholders; dependency on another team; opaque processes outside team) \newline Imbalance (dominating the conversation; not listening) \newline Inefficient meetings (lack of focus; skipping retros; not discussing blockers each day; meetings running over (e.g. long stand-ups)) \\ \hline                  
 \end{tabular}
@@ -330,7 +351,7 @@ Team size is too large \newline Asynchronous communication (distributed teams; d
 
 
 
-We identified eight types of waste ( Table \ref{Waste}). This section defines, elaborates, and provides examples of each type, including associated tensions where available.
+We identified eight types of waste (Table \ref{Waste}). This section defines, elaborates, and provides examples of each type, including associated tensions where available.
 \subsection{Waste: Building the wrong feature or product}
 Building features (or worse, whole products) that no one needs, wants, or uses obviously wastes the time and efforts of everyone involved. We observed this waste affecting team morale, team code ownership \cite{SedanoTeamCodeOwnership}, and customer satisfaction. 
 
@@ -552,5 +573,4 @@ Several avenues for future research have potential. Studying different kinds of 
 %\sout{Based on the research from value stream mapping, the first step of waste reduction may be switching a software firm from a batch-and-pull process where a feature document is handed to a team to implement (e.g. a waterfall system) to a system where a small number of features are handed to a team (e.g. iterative software development.) Then introducing and reducing feedback loops to remove additional waste.}
 \section*{Acknowledgement}
 Thanks to Ben Christel for his assistance in sorting retro topics and helping with the initial analysis. Thank you to Rob Mee, David Goudreau, Ryan Richard, and Zach Larson for making this research possible.
-
 
