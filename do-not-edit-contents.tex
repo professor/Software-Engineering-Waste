@@ -2,19 +2,18 @@
 
 
 
-
 \begin{abstract}
-\textit{Context:} Since software development is a complex socio-technical activity that involves coordinating different disciplines and skill sets, it provides ample opportunities for waste to emerge. Waste is any activity that produces no value for the customer or user.
+\textit{Context:} Since software development is a complex socio-technical activity that involves coordinating different disciplines and skill sets, it provides ample opportunities for waste to emerge. Waste is any activity that when is removed or simplified does not affect the value to any stakeholder.produces no value for the customer or user.
 
 \textit{Objective:} The purpose of this paper is to identify and describe different types of waste in software development.
 
 \textit{Method:} Following Constructivist Grounded Theory, we conducted a \durationOfResearchStudy{} participant-observation study of \numberOfObservedProjects{} software development projects at Pivotal, a software development consultancy. We also interviewed \numberOfInterviews{} software engineers, interaction designers, and product managers, and analyzed one year of retrospection topics. We iterated between analysis and theoretical sampling until achieving theoretical saturation.
 
-\textit{Results:} This paper introduces the first empirical waste taxonomy. It identifies eight wastes and explores their causes, underlying tensions, and overall relationship to the waste taxonomy found in Lean Software Development.
+\textit{Results:} This paper introduces the first empirical waste taxonomy. It identifies \numberOfWastes{} wastes and explores their causes, underlying tensions, and overall relationship to the waste taxonomy found in Lean Software Development.
 
 \textit{Limitations:} Grounded Theory does not support statistical generalization. While the proposed taxonomy appears widely applicable, organizations with different software development cultures may experience different waste types.
 
-\textit{Conclusion:} Software development projects manifest eight types of waste: building the wrong feature or product, mismanaging the backlog, rework, unnecessarily complex solutions, mental workload, waiting, knowledge loss, and ineffective communication.
+\textit{Conclusion:} Software development projects manifest \numberOfWastes{} types of waste: building the wrong feature or product, mismanaging the backlog, rework, unnecessarily complex solutions, extraneous cognitive load, psychological distress, waiting, knowledge loss, and ineffective communication.
  
 
 %\sout{The taxonomy is the foundation for Value Stream Mapping, a process of examining value creation in software development process for the purpose of waste removal. Since waste removal is core to the Lean movement, starting with an ill formulated waste taxonomy suggests a possible rethinking of Lean Software Development claims.}
@@ -60,11 +59,18 @@ Next, we summarize the history of lean and review related work. Section \ref{Res
 
 \section{A Brief History of Lean}
 \label{HistoryOfLean}
-Lean Thinking describes a process of identifying and removing waste in a value stream \cite{WomackLeanThinking}. It involves identifying three types of activities: activities that clearly create value; activities that create no value for the customer but are currently necessary to manufacture the product; and activities that create no value for the customer, are unnecessary and therefore should be removed immediately; i.e., waste. Lean Thinking is based on Womack's analysis of the Toyota Production System. Womack initially identified seven types of waste (Table \ref{ManufacturingWaste}). 
+Lean Thinking is a concept proposed by Womack \cite{WomackLeanThinking} following his analysis of The Toyota Production System. The Toyota Production System prioritizes waste removal by creating a culture that pursues waste identification and elimination in the entire production of a vehicle \cite{OhnoToyotaProductionSystem, ShingoToyotaProductionSystem}. In 1945, Toyota optimized for the production rate of each system, keeping like machines near each other. Ohno rearranged equipment so that the output of one machine fed into the next machine, slowed machines down to have the same cadence, and only produced material when it was needed. After optimizing Toyota's factories, Toyota then trained their suppliers so that the entire production of a vehicle was just-in-time, transforming from mass production to lean production. The resulting \quotes{pull} system was easy to reconfigure, minimized inventory, and supported short production runs.  
 
-The Toyota Production System prioritizes waste removal by creating a culture that pursues waste identification and elimination in the entire production of a vehicle \cite{OhnoToyotaProductionSystem, ShingoToyotaProductionSystem}. In 1945, Toyota optimized for the production rate of each system, keeping like machines near each other. Ohno rearranged equipment so that the output of one machine fed into the next machine, slowed machines down to have the same cadence, and only produced material when it was needed. After optimizing Toyota's factories, Toyota then trained their suppliers so that the entire production of a vehicle was just-in-time, transforming from mass production to lean production. The resulting \quotes{pull} system was easy to reconfigure, minimized inventory, and supported short production runs.  
+Lean Thinking describes a process of identifying and removing waste in a value stream \cite{WomackLeanThinking}. The process discerns three types of activities: activities that clearly create value; activities that create no value for the customer but are currently necessary to manufacture the product; and activities that create no value for the customer, are unnecessary and therefore should be removed immediately; i.e., waste. 
 
-Based on Womack's analysis of the Toyota Production System, Lean Thinking describes a process of identifying and removing waste in the value stream \cite{WomackLeanThinking}. The process involves identifying three types of activities: activities that clearly create value; activities that create no value for the customer but currently necessary to manufacture the product; and activities that create no value for the customer, are unnecessary and therefore should be removed immediately, i.e., waste.
+%Based on analysis of the Toyota Production System, Lean Thinking \cite{WomackLeanThinking} describes a process of identifying and removing waste using five principles:
+%\begin{enumerate}
+%\item Specify value: define value from the customer's perspective
+%\item Identify the value stream: examine all actions required to bring raw materials to final product for the customer and eliminate any obvious unnecessary steps
+%\item Flow: re-engineer from batch-and-queue to just-in-time or continuous flow 
+%\item Pull: create products only in response to a customer order
+%\item Perfection: continue with a continuous process of waste identification and elimination
+%\end{enumerate}
 
 The Toyota Production System characterized seven types of manufacturing waste \cite{ShingoToyotaProductionSystem} shown in Table \ref{ManufacturingWaste}. Later, Womack and Liker each added a waste type: value and non-utilized talent \cite{WomackLeanThinking, LikerToyotaWay}.
 
@@ -91,7 +97,7 @@ Non-utilized Talent (added by \cite{ LikerToyotaWay})      & The cost of unused 
 \end{table}
 
 
-Mary and Tom Poppendieck  created Lean Software Development \cite{PoppendieckLeanSoftwareDevelopment}, by adapting Lean Thinking and the Toyota Production System from manufacturing to software development. Their comparison of manufacturing waste with software waste is presented in Table \ref{ManufacturingVersusLeanSoftwareWaste}.
+Mary and Tom Poppendieck created Lean Software Development \cite{PoppendieckLeanSoftwareDevelopment}, by adapting Lean Thinking and the Toyota Production System from manufacturing to software development. Their comparison of manufacturing waste with software waste is presented in Table \ref{ManufacturingVersusLeanSoftwareWaste}.
 
 \begin{table}[t]
 \renewcommand{\arraystretch}{1.5}
@@ -101,7 +107,7 @@ Mary and Tom Poppendieck  created Lean Software Development \cite{PoppendieckLea
 \begin{tabular}{|p{1.57in}|p{1.57in}|}
 % \begin{tabular}{|l|l|} %dissertation size
 \hline
-Toyota Production System's Manufacturing Wastes & Lean Software Development Wastes \\ \hline
+Toyota Production System's Manufacturing Wastes & Lean Software Development Wastes \cite{PoppendieckConceptToCash} \\ \hline
 Inventory                                       & Partially Done Work                       \\ \hline
 Extra Processing                                & Relearning                                \\ \hline
 Overproduction                                  & Extra Features                            \\ \hline
@@ -109,12 +115,12 @@ Transportation (of goods)                       & Handoffs                      
 Waiting                                         & Delays                                    \\ \hline
 Motion (of people)                              & Task Switching                            \\ \hline
 Defects                                         & Defects                                   \\ \hline
-Value (added by Womack in 1996)                 & N/A                                       \\ \hline
-Non-utilized Talent (added by Liker in 2004)     & N/A                                       \\ \hline
+Value (added by cite{WomackLeanThinking})                 & N/A                                       \\ \hline
+Non-utilized Talent (added by \cite{ LikerToyotaWay})     & N/A                                       \\ \hline
 \end{tabular}
 \end{table}
 
-Adapting a taxonomy from a reference discipline (e.g. manufacturing) for a target discipline (software engineering) manifests at least four threats to validity: 
+Adapting a taxonomy from a reference discipline (e.g. manufacturing) for a target discipline (e.g. software engineering) manifests at least four threats to validity: 
 The target domain may include concepts (wastes) not found in the source domain 
 The source domain may include concepts not found in the target domain
 Concepts from the source domain may bias our perception of superficially similar but fundamentally different concepts in the target domain
@@ -125,7 +131,7 @@ That said, several studies have used the Lean Software Development waste model. 
 
 %Petersen and Wohlin, consequently examine the flow of features by creating cumulative flow diagrams through different phases of software development observed at Ericsson AB in Sweden and India. (The phases are detailing features, implementing and unit testing features, isolation testing, system testing, and ready for release.) They defined several metrics to identify bottlenecks, variance in hand-overs, and cost types. For cost savings analysis, they define waste as any feature that has work done on it (e.g. \quotes{describing the feature}) but is never released to a customer \cite{Petersen2011}.
 
-Several studies applied Value Stream Mapping to software development. Value Stream Mapping popularized by Womack systematically examines each stage for waste. Interestingly, these studies only found the waste of waiting rising from a batch-and-queue system \cite{Ali2016, Khurum2014, Mujtaba2010}. One study identified the wastes of motion and extra processing from interviews, not the current state map \cite{Mujtaba2010}.These studies typically reduced waste by switching the organization from waterfall to iterative software development or reducing the batch size in iterative software development \cite{Ali2016, Khurum2014, Mujtaba2010}.
+Several studies applied Value Stream Mapping to software development. Value Stream Mapping popularized by Womack systematically examines each stage for waste. Interestingly, these studies only found \textit{waiting} waste generated in a batch-and-queue system \cite{Ali2016, Khurum2014, Mujtaba2010}. One study identified the wastes of motion and extra processing from interviews, not the current state map \cite{Mujtaba2010}.These studies typically reduced waste by switching the organization from waterfall to iterative software development or reducing the batch size in iterative software development \cite{Ali2016, Khurum2014, Mujtaba2010}.
 
 %Khurum said, \quotes{the researchers found it is more suitable to start focusing on improvement potential based on long waiting or lead time.} During the waste identification step of the workshop with their research participants, they ask attendees \quotes{in which phase do we see the majority of waiting?} \cite{Khurum2014} The Pygmalion effect (self-fulfilling prophecy) may explain why the researchers only found \textit{waiting} waste in Value Stream Mapping analysis.
 
@@ -154,9 +160,9 @@ Pivotal Labs has practiced Extreme Programming \cite{BeckExtremeProgramming2004}
 We only observed teams at Pivotal Labs. Other teams, especially teams in other divisions, might have a different culture and follow different software practices.
 
 \subsection{Data Collection}
-This paper analyses data from three sources: 1) topics discussed in 91 retrospection meetings, 2) participant observation of \numberOfObservedProjects{} projects over \durationOfResearchStudyPlural{} and 3) interviews with Pivotal employees. 
+This paper analyses data from three sources: 1) participant observation of \numberOfObservedProjects{} projects over \durationOfResearchStudyPlural{}, 2) interviews with Pivotal employees and 3) topics discussed in 91 retrospection meetings. 
 \subsubsection{Participant Observation}
-The first author collected field notes while working as an engineer on  \numberOfObservedProjects{} projects. These notes describe individual and collective actions, capture what participants found interesting or problematic, and include anecdotes and observations.
+The first author collected field notes while working as an engineer on \numberOfObservedProjects{} projects. These notes describe individual and collective actions, capture what participants found interesting or problematic, and include anecdotes and observations.
 
 Projects are de-identified to preserve client confidentiality:
 
@@ -168,7 +174,7 @@ Projects are de-identified to preserve client confidentiality:
 \item Project Kvin (one interaction designer, one product manager, six developers) was a greenfield project for a healthcare startup. 
 \item Project Ses (two interaction designers, one product manager, ten developers) was adding features and removing technical debt to an existing internet e-commerce website.
 \item Project Septem (two interaction designers, three product managers, twelve developers) was adding features and removing technical debt to an existing virtual machine management software.
-\item Project Octo (one product manager, four developers) added features for  workload management of a multi-node database.
+\item Project Octo (one product manager, four developers) added features for workload management of a multi-node database.
 \end{itemize}
 \subsubsection{Interviews}
 The first author interviewed \numberOfInterviews{} interaction designers, product managers, and software engineers who had experience with Pivotal's software development process from five different Pivotal offices. Participants were not paid for their time.
@@ -191,28 +197,13 @@ We routinely compared new codes to existing codes to refine codes and eventually
 
 When \textit{removing waste} appeared as a core category, we analyzed data from retrospectives to investigate (theoretical sampling). After removing irrelevant topics (e.g. complaints about the weather), we printed each retro item onto an index card with its original retro topic, enhanced description, ID, and team name (see Figure \ref{exampleRetroTopicl}).
 
-Two researchers with first-hand experience of the projects coded the retro topics and merged duplicate topics. We iteratively reorganized categories, keeping similar items together and dissimilar items apart. Figure \ref{ChainOfEvidence} gives an example classification for the Mental Workload waste. The figure shows the waste category, its cause categories and properties, and examples of observed retrospective topics illustrating the waste. The full chain of evidence is available \cite{SedanoDissertation}. 
+Two researchers with first-hand experience of the projects coded the retro topics and merged duplicate topics. We iteratively reorganized categories, keeping similar items together and dissimilar items apart. Figure \ref{ChainOfEvidence} gives an example classification for the \textit{psychological distress} waste. The figure shows the waste category, its cause categories and properties, and examples of observed retrospective topics illustrating the waste. The full chain of evidence is available \cite{SedanoDissertation}. 
 
 We often stopped to record new insights. When the categories began to stabilize, we compared each category against the other categories looking for relationships. Once we felt that the categories were stable, we performed a final review of each category to verify that the cards belonged to it. We continued theoretical sampling for removing waste in additional interviews and participant observations until no further waste-related categories were evident, i.e. theoretical saturation. 
 
-
-% \begin{table}[t]
-% \renewcommand{\arraystretch}{1.5}
-% \centering
-% \captionof{figure}{Example Retro Topic Index Card }
-% \label{exampleRetroTopicl}
-% % \begin{tabular}{|l|}
-% % height is 2.7 cm, so with 3 x 5 card, the width is 4.5 cm
-% \begin{tabular}{|p{4.5cm}|}
-% \hline
-% Topic: Legal \\ \\ Description: Waiting on Legal to \\ approve legal pages \\ \\ Id: 182 \hfill Project: Quattour\\ \hline
-% \end{tabular}
-% \end{table}
-
 \begin{figure}[t]
 \centering
-% \includegraphics[width=\oneColumnWidth{}]{waste_images/retro_index_card.png}
-\fbox{\includegraphics[width=6.7cm]{waste_images/retro_index_card.png}}
+\fbox{\includegraphics[width=3in]{waste_images/retro_index_card.png}}
 \caption{Example Retro Topic Index Card}
 \label{exampleRetroTopicl}
 \end{figure}
@@ -229,80 +220,36 @@ We often stopped to record new insights. When the categories began to stabilize,
 
 
 
-% \begin{table}[ht]
-% \centering
-% \captionof{figure}{Examples for Cognitive Hindrance Waste}
-% \label{ChainOfEvidence}
-% \begin{tabular}{|llll|}
-% \hline
-% \multicolumn{4}{|l|}{}  \\
-% \multicolumn{4}{|l|}{Waste category: Cognitive hindrance}  \\
-%     & \multicolumn{3}{l|}{Cause category: Emotional stress}          \\
-%     &     & \multicolumn{2}{l|}{Cause property: Low team morale} \\
-%     &     &      & Retro Topic: Frustrated clients / Pivotal developers       \\
-%     &     &      & Retro Topic: Negative attitudes                \\
-%     &     &      & Retro Topic: Apathy                            \\
-%     &     &      & Retro Topic: Unacknowledged by management      \\
-%     &     &      & Retro Topic: Messy code                        \\
-%     &     &      & Retro Topic: Pairing fatigue                   \\
-%     &     &      & Retro Topic: Poor lighting, lack of windows    \\
-%     &     & \multicolumn{2}{l|}{Cause property: Rush mode} \\
-%     &     &      & Retro Topic: Fixed features with a fixed timeline \\
-%     &     &      & Retro Topic: Aggressive timelines \\
-%     &     &      & Retro Topic: Scope creep \\
-%     &     &      & Retro Topic: Repeatedly saying \quotes{This has to be done today} \\
-%     &     &      & Retro Topic: Long days \\
-%     &     &      & Retro Topic: Overtime \\
-%     &     & \multicolumn{2}{l|}{Cause property: Lack of empathy} \\
-%     &     &      & Retro Topic: Not listening \\
-%     &     &      & Retro Topic: Criticizing in public \\
-%     &     &      & Retro Topic: Difficult pairings \\
-%     &     &      & Retro Topic: Interpersonal conflict \\
-%     &     &      & Retro Topic: Kicking product out of the team space \\
-%     & \multicolumn{3}{l|}{Cause category: Cognitive load}          \\
-%     &     & \multicolumn{2}{l|}{\dots} \\
-%     & \multicolumn{3}{l|}{Cause category: Context Switching}          \\
-%     &     & \multicolumn{2}{l|}{\dots} \\
-% \hline
-% \end{tabular}
-% \end{table}
 
 \begin{table}[ht]
 \centering
-\captionof{figure}{Waste Organization Example (Mental Workload)}
+\captionof{figure}{Waste Organization Example (Psychological Distress)}
 \label{ChainOfEvidence}
-\begin{tabular}{|lllll|}
+\begin{tabular}{|lll|}
 \hline
-\multicolumn{5}{|l|}{}  \\
-\multicolumn{5}{|l|}{Waste category: Mental workload}  \\
-    & \multicolumn{4}{l|}{Cause category: Cognitive hindrance}  \\
-    &     & \multicolumn{3}{l|}{Cause property: Emotional stress}          \\
-    &     &     & \multicolumn{2}{l|}{Cause sub-property: Low team morale} \\
-    &     &     &      & Retro Topic: Frustrated clients / Pivotal developers       \\
-    &     &     &      & Retro Topic: Negative attitudes                \\
-    &     &     &      & Retro Topic: Apathy                            \\
-    &     &     &      & Retro Topic: Unacknowledged by management      \\
-    &     &     &      & Retro Topic: Messy code                        \\
-    &     &     &      & Retro Topic: Pairing fatigue                   \\
-    &     &     &      & Retro Topic: Poor lighting, lack of windows    \\
-    &     &     & \multicolumn{2}{l|}{Cause sub-property: Rush mode} \\
-    &     &     &      & Retro Topic: Fixed features with a fixed timeline \\
-    &     &     &      & Retro Topic: Aggressive timelines \\
-    &     &     &      & Retro Topic: Scope creep \\
-    &     &     &      & Retro Topic: Repeatedly saying \quotes{This is due today} \\
-    &     &     &      & Retro Topic: Long days \\
-    &     &     &      & Retro Topic: Overtime \\
-    &     &     & \multicolumn{2}{l|}{Cause sub-property: Lack of empathy} \\
-    &     &     &      & Retro Topic: Not listening \\
-    &     &     &      & Retro Topic: Criticizing in public \\
-    &     &     &      & Retro Topic: Difficult pairings \\
-    &     &     &      & Retro Topic: Interpersonal conflict \\
-    &     &     &      & Retro Topic: Kicking product out of the team space \\
-    &     & \multicolumn{3}{l|}{Cause property: Cognitive load}          \\
-    &     &     & \multicolumn{2}{l|}{\dots} \\
-    &     & \multicolumn{3}{l|}{Cause property: Context Switching}          \\
-    &     &     & \multicolumn{2}{l|}{\dots} \\
-    &     & \multicolumn{3}{l|}{\dots} \\
+\multicolumn{3}{|l|}{}  \\
+\multicolumn{3}{|l|}{Waste category: Psychological Distress}  \\
+     & \multicolumn{2}{l|}{Cause property: Low team morale} \\
+     &      & Retro Topic: Frustrated clients / Pivotal developers       \\
+     &      & Retro Topic: Negative attitudes                \\
+     &      & Retro Topic: Apathy                            \\
+     &      & Retro Topic: Unacknowledged by management      \\
+     &      & Retro Topic: Messy code                        \\
+     &      & Retro Topic: Pairing fatigue                   \\
+     &      & Retro Topic: Poor lighting, lack of windows    \\
+     & \multicolumn{2}{l|}{Cause property: Rush mode} \\
+     &      & Retro Topic: Fixed features with a fixed timeline \\
+     &      & Retro Topic: Aggressive timelines \\
+     &      & Retro Topic: Scope creep \\
+     &      & Retro Topic: Repeatedly saying \quotes{This is due today} \\
+     &      & Retro Topic: Long days \\
+     &      & Retro Topic: Overtime \\
+     & \multicolumn{2}{l|}{Cause property: Lack of empathy} \\
+     &      & Retro Topic: Not listening \\
+     &      & Retro Topic: Criticizing in public \\
+     &      & Retro Topic: Difficult pairings \\
+     &      & Retro Topic: Interpersonal conflict \\
+     &      & Retro Topic: Kicking product out of the team space \\
 \hline
 \end{tabular}
 \end{table}
@@ -327,22 +274,26 @@ Building the wrong feature or product &  The cost of building a feature or produ
 User Desiderata (not doing user research, validation, or testing; ignoring user feedback; working on low user value features) \newline Business Desiderata (not involving a business stakeholder; slow stakeholder feedback; unclear product priorities)                                                                                                                                                                                  \\ \hline
 Mismanaging the backlog     & The cost of duplicating work, expediting lower value user features, or delaying necessary bug fixes.  & 
 Backlog inversion \newline Working on too many features simultaneously \newline Duplicated work \newline Not enough ready stories  \newline Imbalance of feature work and bug fixing \newline Delaying testing or critical bug fixing \newline Capricious thrashing                                                                                                                                                                                                                                                                                                                                    \\ \hline
-Rework                                & The cost of altering delivered work that does not meet the expectations of product managers, interaction designers, users, or other stakeholders. & Rejected Stories (product manager rejects story implementation) \newline No clear definition of done (ambiguous stories; second guessing design mocks) \newline Defects and Bugs (poor testing strategy; no root-cause analysis on bugs)                                                                                                                                                                   \\ \hline
+Rework                                & The cost of altering delivered work that should have been done correctly but was not & Rejected Stories (product manager rejects story implementation) \newline No clear definition of done (ambiguous stories; second guessing design mocks) \newline Defects and Bugs (poor testing strategy; no root-cause analysis on bugs)                                                                                                                                                                   \\ \hline
 Unnecessarily complex solutions  & The cost of creating a more complicated solution than necessary,  a missed opportunity to simplify features, user interface, or code.      & 
 Unnecessary feature complexity from the user's perspective; unnecessary technical complexity (duplicating code, lack of interaction design reuse, overly complex technical design created up-front)
 \\ \hline
-Mental workload  &   The cost of unneeded expenditure of mental energy or the cost of decreasing cognitive capacity.   & 
-Inefficient tools and problematic APIs, libraries, and frameworks \newline
-Suffering from technical debt \newline						
-Cognitive effort (inefficient development flow, sluething the code) \newline
-Cognitive hindrance (overload from context switching; emotional stress: low team morale, rush mode, lack of empathy; cognitive load: complex or large stories)
+Extraneous cognitive load &  The costs of unneeded expenditure of mental energy  &  
+Complex or large stories \newline	
+Unnecessary context switching \newline	
+Inefficient tools and problematic APIs, libraries, and frameworks \newline	
+Suffering from technical debt \newline	
+Inefficient development flow \newline	
+Poorly organized code \newline	
+\\ \hline
+
+Psychological Distress & The costs of burdening the team with unhelpful stress &  Emotional stress;  Low team morale; Rush mode
 \\ \hline
 Knowledge loss & The cost of re-acquiring information that the team once knew. & 
 Knowledge loss from team churn \newline
 Knowledge solos 
 \\ \hline
-Waiting                               & The cost of idle time, often hidden by multi-tasking. & 
-Slow tests or unreliable tests \newline Unreliable acceptance environment \newline Missing needed information, people, or equipment                                                                                                                                                                                                                                                                         \\ \hline
+Waiting                               & The cost of idle time, often hidden by multi-tasking. & Slow tests or unreliable tests \newline Unreliable acceptance environment \newline Missing  needed information, people, or equipment                                                                                                                                                                                                                                                                           \\ \hline
 Ineffective communication             & The cost of incomplete, incorrect, misleading, inefficient, or absent communication.                         & 
 Team size is too large \newline Asynchronous communication (distributed teams; distributed stakeholders; dependency on another team; opaque processes outside team) \newline Imbalance (dominating the conversation; not listening) \newline Inefficient meetings (lack of focus; skipping retros; not discussing blockers each day; meetings running over (e.g. long stand-ups)) \\ \hline                  
 \end{tabular}
@@ -351,7 +302,7 @@ Team size is too large \newline Asynchronous communication (distributed teams; d
 
 
 
-We identified eight types of waste (Table \ref{Waste}). This section defines, elaborates, and provides examples of each type, including associated tensions where available.
+We identified \numberOfWastes{} types of waste (Table \ref{Waste}). This section defines, elaborates, and provides examples of each type, including associated tensions where available.
 \subsection{Waste: Building the wrong feature or product}
 Building features (or worse, whole products) that no one needs, wants, or uses obviously wastes the time and efforts of everyone involved. We observed this waste affecting team morale, team code ownership \cite{SedanoTeamCodeOwnership}, and customer satisfaction. 
 
@@ -366,43 +317,46 @@ The product backlog can be mismanaged in several ways, leading to delays of key 
 
 On several projects, we observed engineers working on low-priority stories through \quotes{backlog inversion.} This occurs when the engineers working through the backlog get ahead of the product manager who is prioritizing the backlog. For instance, the product manager might prioritize the next ten stories in the backlog, but the engineers get to story 15 before the product manager gets back to prioritizing. This creates waste as engineers implement potentially outdated, low-value, or even counterproductive stories ahead of high-value stories.   
 
-Mismanaging the backlog can also lead to duplicated work. We observed duplicated stories in the backlog, two engineers working on the same story because one had forgotten to change its status in the backlog software (Pivotal Tracker), and two engineers independently addressing the same pain point (e.g. making the build faster) by not adding chores to reflect their work in progress.
+Mismanaging the backlog can also lead to duplicated work. We observed duplicate stories in the backlog, two engineers working on the same story because one had forgotten to change its status , and two engineers independently addressing the same pain point (e.g. making the build faster) by not communicating in the backlog what they were working on.
 
 \textbf{Tension: Writing enough stories} versus \textbf{writing stories that will never be implemented.}
 Pivotal product managers attempt to provide the team with a steady stream of ready, high-value work. This creates a tension between writing enough stories for the team to work on and \quotes{over-producing} stories that might never be implemented. Writing too few stories causes the team to idle while writing too many stories wastes the product manager's time. We observed teams running out of work on rare occasions; we did not observe product managers writing too many stories.  
 
 \textbf{Tension: Finishing features} versus \textbf{working on too many features simultaneously.}
-Product managers decompose a feature into a set of stories, and typically sequence the stories to finish just enough of each feature before starting another feature in order to create the minimal viable product as soon as possible. 
+Product managers decompose a feature into a set of stories, and typically aim to create the minimal viable product as quickly as possible by sequencing the stories to finish just enough of each feature before starting another feature. 
 
 On Project Quattuor's backend system, we observed one product manager starting too many tracks of work at once by prioritizing a breadth of features instead of finishing started features. Unfortunately, several tracks of work were not completed by the first release date. The work in progress was disabled with feature flags. Starting work, changing priorities, and halting work in flight, can result in waste.
 
-In general, we observed that teams prefer to maintain a shippable product while finishing minimal viable product versions of each feature as soon as possible.
+We observed that teams usually prefer to maintain a shippable product while rapidly finishing the simplest possible version of each new feature.
 
 \textbf{Tension: intransigence} versus \textbf{capricious adjustments.}
 Responding to change quickly is a core tenet of agile development and often thought of as the opposite of refusing to change. However, responding to change is more like a middle ground between intransigence (unreasonably refusing to change) and thrashing (changing features too often, especially arbitrarily alternating between equally good alternatives). 
 
 On Project Kvin, for example, the launch was delayed while the business fiddled with the sequence and number of steps in the user registration process. Project Duo was similarly delayed by a product manager repeatedly resequencing an order customization process. 
-
 \subsection{Waste: Rework}
-From a Waterfall perspective, one might classify any returning to existing code as \quotes{rework.} This is inaccurate because it fails to distinguish between situations where things could have been done right based on information available then from situations where new information reveals a better approach. 
+From a Waterfall perspective, one might classify any revision of existing code as \quotes{rework.} This problematically fails to distinguish between situations where things could have been done right based on the information available then from situations where new information reveals a better approach. 
 
-Contrastingly, our participants distinguish between revising work that should have been done correctly but was not (\textit{rework}) and improving existing work based on new information (new work). By definition, \textit{rework} wastes time and resources. We observed numerous sources of \textit{rework} including stories with no clear definition of done, rejected stories (rejecting delivered work because the implementation did not satisfying the  acceptance criteria), defects in the code, poor testing strategy, and ambiguous mock-ups.
+Contrastingly, our participants classify revising work that should have been done correctly but was not as \textit{rework}, and improving existing work based on new information as \textit{new work}. \textit{Rework} wastes time and resources by definition. We observed numerous sources of \textit{rework} including stories with no clear definition of done, rejected stories (rejecting delivered work because the implementation did not satisfying the acceptance criteria), defects in the code, poor testing strategy, and ambiguous mock-ups.
 
-On Project Ses, the engineers showed a finished story to the interaction designer for feedback. The interaction designer pointed out a missing interaction, yet the desired behavior was not in the story and not described in the mock-up.
+On Project Ses, the engineers showed a finished story to the interaction designer for feedback. The interaction designer pointed out a missing interaction, which was neither in the story nor in the mock-up.
 
 On Project Quattuor, the client delayed fixing of critical bugs until just before the release. Fixing one bug in the backend system had a cascading effect with the clients which expected the code to work a certain way. \textit{Rework} could have been avoided had the critical bug been fixed prior to the client code becoming dependent on it.
 
-On Project Quattuor, the interaction designers created mockups optimized for English, not the target language. After implementing the application, the team realized that the primary foreign language translation took up more space than the English translations, requiring rework for several design components. 
+Also on Project Quattuor, the interaction designers created mockups optimized for English, not the target language. After implementing the application, the team realized that the target language text needed more space than the English translations, requiring rework for several design components. 
 
-On Project Kvin, the interaction designer did not remember to consider a responsive web design for mobile phones when building the mock-ups. After building a few screens, the team realized that the website did not work well on mobile devices requiring \textit{rework}.
+On Project Kvin, the interaction designer forgot to consider mobile phones when building the mock-ups. After building a few screens, the team realized that the website did not work well on mobile devices requiring \textit{rework}.
 \subsection{Waste: Unnecessarily complex solutions}
-\textit{Unnecessarily complex solutions} can be caused by feature complexity (which reduces the user's satisfaction), technical complexity, and lack of reuse. Unnecessarily complex solutions can reduce the team's productivity. 
+\textit{Unnecessarily complex solutions} can be caused by feature complexity, technical complexity, or lack of reuse. Unnecessary feature complexity wastes users' time as they struggle to understand how to use the system and achieve their objectives, e.g. requiring the user to fill in form fields not related to the task at hand. Some features bring unnecessary technical complexity since a simpler interaction design would have solved the same problem. %\sout{We observed a simple solution was to increase conversations with product, design, and engineering. On one project, an engineer shortened the feedback loop by daily checking-in with the interaction designer.} Unnecessary technical complexity similarly wastes developers' time by making code more difficult to build and maintain. 
 
-When a feature or product is unnecessarily complex from the user's perspective, it wastes users' time, especially when users struggle to understand how to achieve their objectives. The anfractuous product is difficult to use. Some features bring unnecessary technical complexity as a simpler interaction design would have solved the same problem. %\sout{We observed a simple solution was to increase conversations with product, design, and engineering. On one project, an engineer shortened the feedback loop by daily checking-in with the interaction designer.}
+On Projects Tes, Ses, and Septem, complicated legacy components were refactored into simpler, easier to understand components. However, personal and organizational goals may misalign on this issue---one Pivotal engineer complained that a client engineer's attitude was, \participantQuote{the more complicated, the better, as that means my role is more important} \textemdash Participant 29.
 
-Similarly, an unnecessary technical complexity wastes developers' time with unduly difficult to build and maintain code. On Projects Tes, Ses, and Septem, complicated legacy components were refactored into simpler, easier to understand components. Sometimes personal goals do not align with the team goals leading to unnecessarily complex solutions. A Pivotal engineer said that a client engineer's attitude was, \participantQuote{the more complicated, the better, as that means my role is more important} \textemdash Participant 29.
+Another way to increase system complexity is through a lack of reuse, i.e., building a new component instead of reusing an existing component. In code, lack of reuse can manifest as duplicated code and similar components that have similar functionality. In mockups, lack of reuse produces \quotes{snowflake designs}, designs which could take advantage of design reuse, e.g. two unique user interaction flows that could be unified into similar experiences or two visual components that solve the same concern.
 
-Another way to increase system complexity is through a lack of reuse, i.e., building a new component instead of reusing an existing component. In code, lack of reuse can manifest as duplicated code and similar components that have similar functionality. In mockups, lack of reuse results in \quotes{snowflake designs} which could take advantage of design reuse. On Project Duo, the interaction designer created a left-to-right navigational flow for configuring the product but designed a top-to-bottom navigational flow for the checkout page. Both sequences allowed the user to change a previous choice, jump to the correct page, and invalidate dependent information. In retrospect, development time would have shortened if both used the same design treatment. On Project Quattuor, the presence of multiple designers resulted in different design treatments for the same concept. The product shipped multiple versions of layouts, lists, alerts, and buttons, some with expensive interactions to engender user delight. On Project Kvin, the interaction designer created two sets of form inputs which necessitated multiple CSS styles for the HTML form input tags. Singular designs require engineering to build unique solutions with no possibility of reuse.   
+On Project Duo, the interaction designer created a left-to-right navigational flow for configuring the product but designed a top-to-bottom navigational flow for the checkout page. Both sequences allowed the user to change a previous choice, jump to the correct page, and invalidate dependent information. In retrospect, using the same design treatment for both would have been faster. 
+
+On Project Quattuor, multiple designers produced different design treatments for the same concept. The product shipped multiple versions of layouts, lists, alerts, and buttons, some with expensive interactions to delight users. 
+
+On Project Kvin, the interaction designer created two sets of form inputs which necessitated multiple CSS styles for the HTML form input tags. Singular designs require engineering to build unique solutions with no possibility of reuse.   
 
 \textbf{Tension: Big design up-front} versus \textbf{incremental design.}
 Many projects exhibit a tension between up-front and incremental design. Rushing into implementation can produce ineffective emergent designs, leading to rework. However, big up-front design can produce incorrect or out-of-date assumptions and inability to cope with rapidly changing circumstances, also leading to expensive rework. The desire to avoid rework and differing development ideologies, therefore, motivate the tension and disagreement over big design up-front versus incremental design. 
@@ -411,46 +365,44 @@ The observed teams expected the product features to change even when the client 
 
 We observed teams using common architectural and design solutions from similar, previous projects without explicit architectural or design phases.
 
-\subsection{Waste: Mental workload}
-\textit{Mental workload} refers to the limited cognitive capacity of the individual \cite{Longo2014Dissertation}. Mental task construction could place unneeded work on the engineer (\textit{increased cognitive effort}) or situational effects can reduce the capability of the engineer (\textit{increased cognitive hindrance}).
+\subsection{Waste: Extraneous Cognitive Load}
 
-On several projects, we observed ineffective tooling (development environments, deployment processes) and convoluted, nonfunctional, premature, complicated, unstable, outdated, unsupported, time-consuming, or inappropriate-for-the-task software libraries leading to engineers working ineffectively. One frustrated software engineer said that one arcane technology \participantQuote{makes me angry enough that I want to hack into it, expose how useless and horrible it is and wipe this miserable product off the face of the earth!} \textemdash Participant 13.
+Cognitive Load Theory \cite{Sweller1988} posits that our working memory is quite limited and overloading it inhibits learning and problem solving \cite{Artino2008}. Intrinsic cognitive load refers to the innate complexity of the task, while extraneous cognitive load refers to the cognitive load unnecessarily added by the task environment, or the way the task is presented \cite{Sweller2010}. Reducing the burden on working memory by removing extraneous cognitive load is therefore associated with more efficient learning among other positive outcomes \cite{VanSweller2005}.
 
-Technical debt refers to delaying needed technical work, by taking technical shortcuts, usually to meet a deadline \cite{McConnellTechnicalDebt}. The interest on technical debt is waste. We observed teams suffering from technical debt with long-running, existing code bases. On Project Tes, running the test suite produced 87,000 lines of output including deprecation warnings, exceptions, and test noise. Engineers ignored the overwhelming output which contained important information. \todo{(For longer papers) With considerable effort, the team fixed the test output to only contained test failures.} On Project Ses, dead code littered the code base along with convoluted objects. Project Septem suffered from engineers introducing an idea in one part of the code base, but not applying the concept systematically. \todo{(For longer papers) The project had multiple CSS themes, multiple test suites using different programming languages, multiple naming conventions, and multiple ways of interacting with the data repositories.} On each of these projects, the teams spent considerable effort paying down technical debt to improve their productivity and team code ownership \cite{SedanoTeamCodeOwnership}.  
+Since many software development activities have high intrinsic cognitive load and developer's mental capacity is a limited resource, we view extraneous cognitive load as waste. While we cannot observe cognitive load directly, we did observe sources of extraneous cognitive load including overcomplicated stories, ineffective tooling, technical debt, and multitasking.
 
-\textit{Increased cognitive effort} happens when an individual performs more effort than is necessary, much like taking the \quotes{scenic route} on a hike. \textit{Increased cognitive effort} includes the waste from sleuthing missing information, knowledge loss from team churn, suffering from technical debt, inefficient tools, and problematic APIs.
+\textit{Overcomplicated stories}---user stories that are unnecessarily long, complex, unclear, or replete with pointers to other necessary information---are precisely the sort of task materials that Cognitive Load Theory predicts will overburden working memory.  On Project Quattuor, one story modifying the presentation of status resulted in the pair creating a spreadsheet listing out the complex behavior. The logic had become too complex to reason about in an individual's working memory. The team, concerned about code maintenance and readability, asked the product manager if simplifying the logic was possible.
 
-We observed several instances of engineers sleuthing for needed information when, for example, code and commit messages did not convey intention, or bug reports were incomplete. 
+\textit{Ineffective tooling} includes convoluted, nonfunctional, premature, complicated, unstable, outdated, unsupported, time-consuming, or inappropriate-for-the-task software libraries, as well as poorly designed development environments and deployment processes. Participant 13 said that one arcane technology \participantQuote{makes me angry enough that I want to hack into it, expose how useless and horrible it is and wipe this miserable product off the face of the earth!}.
+
+\textit{Technical debt} refers to the risks of delaying needed technical work, by taking technical shortcuts, usually to meet a deadline \cite{McConnellTechnicalDebt}. Two key risks are the code being more difficult to understand and modify. We observed teams suffering from technical debt with long-running, existing code bases. On Project Tes for example, running the test suite produced 87,000 lines of output including deprecation warnings, exceptions, and test noise. Engineers ignored the overwhelming output which contained important information, On Project Ses, dead code littered the code base along with convoluted objects. Project Septem suffered from engineers introducing an idea in one part of the code base, but not applying the concept systematically. These examples illustrate how technical debt creates more things developers need to remember, in other words, how technical debt increases extraneous cognitive load. 
+
+\textit{Multitasking}---performing two or more activities simultaneously or rapidly alternating between them---increases cognitive load as the multitasker attempts to holds two or more sets of information in working memory or needs to unnecessarily re-load  the information into working memory. While observed engineers prefer to finish one task before beginning the next task, they also try to convert excessive waiting (e.g. long builds, long tests, waiting for feedback) into productive time by multitasking (see \textit{waiting} waste description for more detail).
+
+\subsection{Waste: Psychological Distress}
+A distinct but related phenomena is psychological distress. “Stress is the nonspecific response of the body to any demand made upon it," \cite{Selye1976}. Stress may be beneficial (eustress) or harmful (distress). We see psychological distress as a kind of waste for the same reason as cognitive overload: developers are a limited resource, which distress consumes. Job-related psychological distress causes absenteeism, burnout, lower productivity and a variety of health problems \cite{Westman2001}.   
  
-
-\textit{Increased cognitive hindrance} is decreasing the cognitive capacity and cognitive ability, much like a \quotes{debuff} from role playing games or carrying a heavy backpack during a hike. This waste decreases the person's individual productivity. We observed productivity problems related to context switching, emotional stress, and cognitive load.
-
-Context switching creates mental workload waste as the brain needs to re-load the context from each task. Working on more than one activity at a time can lead to overload from context switching. Observed teams prefered to work on one task and finish it before moving onto the next task. Engineers trying to convert excessive waiting (e.g. long builds, long tests, waiting for feedback) into productive time can result in overload from context switching (see \textit{waiting} waste description for more detail).
-
 On Project Quattuor, for example, the team rushed to release a fixed feature set by a fixed date. Daily, the team decreased a countdown written on an office whiteboard to the release date. We observed low team morale, rush mode, lack of empathy, and waiting too long to resolve interpersonal issues leading to people working inefficiently. The team furthermore felt that over-emphasizing the deadline was increasing stress and leading to poor technical decisions, and eventually erased the countdown from the whiteboard. Participants felt that fixing both scope and schedule was antithetical to Pivotal's software process, where the client either chooses the release date and gets the features ready by then or chooses key features and ships the product when the features are ready. 
 
-Complex stories can add additional cognitive load for the developer. On Project Quattuor, one story modifying the presentation of status resulted in the pair creating a spreadsheet listing out the complex behavior. The logic had become too complex to reason about in an individual's working memory. The team, concerned about code maintenance and readability, asked the product manager if simplifying the logic was possible. 
-
-% On Project Quattuor, the product managers were busy managing up as well as providing enough stories to keep the teams occupied. As a result, product managers frequently delayed accepting and rejecting stories. Developers might restart rejected stories they finished awhile ago requiring them to recall the context around the story. This large team followed pair rotation from sustainable software development \cite{SedanoSustainableSoftware} which meant that the pair picking up a rejected story probably had not worked on the story.
-
 \subsection{Waste: Knowledge loss}
-\textit{Knowledge loss} occurs when a team member leaves a team as the team no longer has ready access to the person's knowledge. An engineer leaving the company is a more drastic form of knowledge loss than employees rotating through a team. 
+\textit{Knowledge loss} occurs when a team member with unique knowledge leaves a team or company---the latter being a more extreme form of knowledge loss.
 
-In projects where knowledge silos formed, team churn leads to wasted effort as the team regains the lost knowledge. For legacy systems, we observed teams sleuthing the code base, commit messages, and completed stories in the backlog to understand how and why the code behaved.  
+In projects with knowledge silos, team churn leads to wasted effort as the team regains lost knowledge. For legacy systems, we observed teams sleuthing the code base, commit messages, and completed stories in the backlog to understand the code.  
 
-On Project Octo, a complete team turnover required the new team to spend months understanding the system, and the team's velocity was practically zero.
+On Project Octo, a complete team turnover required the new team to spend months understanding the system, during which the team's velocity was practically zero.
 
-The observed teams reduced knowledge loss by actively removing knowledge silos and caretaking the code by adopting the principles, policies, and the practices in the theory of sustainable software development through overlapping pair rotation \cite{SedanoSustainableSoftware}. Teams promoting knowledge sharing are less susceptible to knowledge loss from team churn or team member rotation. 
+The observed teams reduced knowledge loss by actively removing knowledge silos and caretaking the code by adopting the principles, policies, and the practices of Sustainable Software Development \cite{SedanoSustainableSoftware}. Teams promoting knowledge sharing appear less susceptible to knowledge loss from team churn or team member rotation. 
 
 \subsection{Waste: Waiting}
-Having developers waiting around, working slowly or working on low-priority features because something is preventing them from proceeding on high-priority features wastes their time. For example, we observed developers waiting on (or looking for) product managers and designers to clarify a story's acceptance criteria. On Project Quattuor, product managers started multitasking while accepting stories because the acceptance environment was unreliable. We saw team members waiting around because of missing video-conferencing equipment. 
-Ohno described \textit{waiting} waste as hidden waste since people start working on the next job, instead of waiting \cite{OhnoToyotaProductionSystem}. To expose this waste, in Toyota Production System, when someone pulls the red cable, everyone stops, bringing attention to the waste. On Project Ses, engineers were waiting hours for the build. It took 58 minutes to run locally and 17 minutes on the build machine due to parallelization on four machines. Team members would not run tests locally, but push code as a branch to the build machine. While the build machine ran the tests, the engineers would either wait or context switch onto different work. If the branch passed, some time later, they would merge their code into the team's code. If the branch failed, the engineers would decide either to finish the work that they were doing or switch back and fix the issue. Some engineers found the context switching exhausting. The \quotes{solution} for \textit{waiting} created \textit{mental workload} waste.
+Having developers waiting around, working slowly or working on low-priority features because something is preventing them from proceeding on high-priority features wastes their time and delays their projects. For example, we observed developers waiting on (or looking for) product managers and designers to clarify a story's acceptance criteria. On Project Quattuor, product managers started multitasking while accepting stories because the acceptance environment was unreliable. We also saw team members waiting around because of missing video-conferencing equipment. 
+
+Ohno described \textit{waiting} waste as hidden waste since people start working on the next job, instead of waiting \cite{OhnoToyotaProductionSystem}. To expose this waste, in Toyota Production System, when someone pulls the red cable, everyone stops, bringing attention to the waste. On Project Ses, it took 58 minutes to run the build locally and 17 minutes on the build machine due to parallelization on four machines. Team members would push code as a branch to the build machine instead of running tests locally. While the build machine ran the tests, the engineers would either wait or context switch onto different work. If the branch passed, some time later, they would merge their code into the team's code. If the branch failed, the engineers would decide either to finish the work that they were doing or switch back and fix the issue. Some engineers found the context switching exhausting. This \quotes{solution} for \textit{waiting} created \textit{extraneous cognitive load} waste.
 
 \textbf{Tension: Wait, block, or guess.}
-When needed information is missing, engineers appear to have three options: 1) wait for the information; 2) suspend (block) the story and work on something else; 3) act without the information. The best option depends on how far into the story the pair is, how long they have to wait, and their confidence in their best guess.
+When needed information is missing, engineers appear to have three options: 1) wait for the information; 2) suspend (block) the story and work on something else; 3) act without the information. The best option depends on how far into the story the pair is, how long they have to wait, and their confidence in their guess.
 
 \textbf{Tension: Waiting} versus \textbf{context switching.}
-When possible, engineers would often use waiting time to attempt to remedy the problem or reduce the duration of future waiting (e.g. shorten the build.) When this was not possible, engineers often worked on something else instead of idling. Unfortunately, task switching decreases productivity and increases mistakes \cite{MonsellTaskSwitching}. For short waits, taking a break (e.g. playing table tennis) may be less wasteful than switching to another task. 
+When possible, engineers would often use waiting time to attempt to remedy problems or reduce the duration of future waiting (e.g. shorten the build). When this was not possible, engineers often worked on something else instead of idling. Unfortunately, task switching decreases productivity and increases mistakes \cite{MonsellTaskSwitching}. For short waits, taking a break (e.g. playing table tennis) may be less wasteful than switching to another task. 
 
 \subsection{Waste: Ineffective communication}
 \textit{Ineffective communication} is incomplete, incorrect, misleading, inefficient, or absent communication. We observed that large team sizes, asynchronous communication, imbalance in communication, and inefficient meetings reduced team productivity.
@@ -479,7 +431,7 @@ On Project Quattuor, when the project started, the iOS team was not effectively 
 
 This section compares and contrasts our waste taxonomy (Section \ref{SEWaste}), with Lean Software Development's waste taxonomy \cite{PoppendieckConceptToCash} category by category. 
 
-While several categories are analogous (Table \ref{LeanSoftwareDevelopmentComparisonTable}), we observed two types of waste not found in Lean: (\textit{unnecessarily complex solutions} and \textit{ineffective communication}) (see Section \ref{SEWaste} for details). Meanwhile, we did not observe one of the Lean waste types, discussed next.
+While several categories are analogous (Table \ref{LeanSoftwareDevelopmentComparisonTable}), we observed two types of waste not found in Lean: (\textit{unnecessarily complex solutions,} \textit{distress,} and \textit{ineffective communication}) (see Section \ref{SEWaste} for details). Meanwhile, we did not observe Lean's handoff waste type.
 
 \begin{table}[t]
 \renewcommand{\arraystretch}{1.5}
@@ -489,12 +441,13 @@ While several categories are analogous (Table \ref{LeanSoftwareDevelopmentCompar
 \begin{tabular}{|p{1.57in}|p{1.57in}|}
 % \begin{tabular}{|l|l|} %dissertation size
 \hline
-Software Development Wastes           & Poppendiecks' Software Development Wastes \\ \hline
+Software Development Wastes           & Lean Software Development Wastes \\ \hline
 Building the wrong feature or product & Extra Features                            \\ \hline
 Mismanaging the backlog               & Partially Done Work                            \\ \hline
 Unnecessarily complex solutions                & Not described                             \\ \hline
 Rework                                & Defects                                   \\ \hline
-Mental workload                 & Task Switching  \\ \hline
+Extraneous Cognitive Load                 & Task Switching  \\ \hline
+Psychological Distress                             & Not described \\ \hline
 Knowledge loss                 & Relearning                            \\ \hline
 Waiting                               & Delays                                    \\ \hline
 Ineffective communication             & Not described                             \\ \hline
@@ -502,19 +455,41 @@ Not observed                          & Handoffs                                
 \end{tabular}
 \end{table}
 
+% \begin{table}[t]
+% \renewcommand{\arraystretch}{1.5}
+% \centering
+% \caption{Comparison to Lean Software Development Waste V2}
+% \label{LeanSoftwareDevelopmentComparisonTable2}
+% \begin{tabular}{|p{1.57in}|p{1.57in}|}
+% % \begin{tabular}{|l|l|} %dissertation size
+% \hline
+% Software Development Wastes           & Lean Software Development Wastes \\ \hline
+% Building the wrong feature or product & Extra Features                            \\ \hline
+% Mismanaging the backlog               & Partially Done Work                            \\ \hline
+% Unnecessarily complex solutions                & Not described                             \\ \hline
+% Rework                                & Defects                                   \\ \hline
+% Extraneous Cognitive Load                 & Not described  \\ \hline
+% Psychological Distress                             & Not described \\ \hline
+% Knowledge loss                 & Relearning                            \\ \hline
+% Waiting \& Multitasking                              & Delays                                    \\  
+%                   & Task Switching  \\ \hline
+% Ineffective communication             & Not described                             \\ \hline
+% Not observed                          & Handoffs                                  \\ \hline
+% \end{tabular}
+% \end{table}
+
+
 \textbf{Handoffs}: We did not observe \textit{Handoff} waste---the loss of tacit knowledge when work is handed off to colleagues---as Pivotal follows an iterative software development process with cross functional teams. We did observe \textit{waiting} waste as engineers might contact people outside the team who had needed information. \textit{Handoffs} certainly contribute to the wastes of knowledge loss, ineffective communication, and waiting. However, our data does not support \textit{handoffs} as a \textit{type} of waste.
 
 \textbf{Building the wrong feature or product} and \textbf{Extra features}: In our model, \textit{building the wrong feature or product} describes not addressing user or business needs. Pivotal's process relies on user validation to assess value in solving the user's needs and iterating from a minimal viable product. In Lean Software Development, \textit{extra features} describes adding in features that are not needed for the user's current needs. Both perspectives align on delaying features until necessary. \textit{Extra features} does not cover the waste from missing important business needs. \textit{Building the wrong feature or product} is a superset of \textit{extra features}.
 
-\textbf{Mismanaging the backlog} and \textbf{Partially done work}: In our model, \textit{mismanaging the backlog} represents sequencing low priority work before high priority work, accidentally duplicating work, capricious thrashing, or delaying necessary bug fixes. Lean Software Development does not cover these wastes. In Lean Software Development, \textit{partially done work} is work that is not tested, implemented, integrated, documented, or deployed. Any feature description that is not implemented, any code that is not integrated or merged, any code that is untested, any code that is not self-documenting or documented, and any code that is not deployed where the user can receive value is \textit{partially done work}.
+\textbf{Mismanaging the backlog} and \textbf{Partially done work}: There is common ground between both taxonomies on reducing large batch sizes into smaller batches with an ideal of  \quotes{continuous flow,} where work is routinely moving through the system hence decreasing feature lead time. However, in Lean Software Development, \textit{partially done work} is work that is not tested, implemented, integrated, documented, or deployed. Any feature description that is not implemented, any code that is not integrated or merged, any code that is untested, any code that is not self-documenting or documented, and any code that is not deployed where the user can receive value is \textit{partially done work}.
 
-The observed teams do not view materials flowing through the system as waste. Interaction designers need to be producing just enough mockups, product managers need to be writing just enough stories, the developers need to be writing just enough code to make the story work. In any continuous flow system, there is unfinished materials at each step. 
+\textit{Mismanaging the backlog} includes observed wastes beyond \textit{partially done work}, namely,  sequencing low priority work before high priority work, accidentally duplicating work, capricious thrashing, or delaying necessary bug fixes. Lean Software Development does not cover these wastes. 
 
-While we did observe a product manager prioritize the starting too many features at once (as described in \textit{mismanaging the backlog} waste section), we mostly observed work flowing in a relatively orderly fashion with minimum delay, as compared to a waterfall software process. If we were to observe large amount of waiting designs, or large amounts of waiting stories, then we would classify that waste as \textit{mismanaging the backlog}.
+The observed teams did not view materials flowing through the system as waste. Interaction designers need to produce just enough mockups, product managers need to write just enough stories, and developers need to write just enough code to make the story work. In any continuous flow system, there are unfinished materials at each step. 
 
-There is common ground between both models on reducing large batch sizes into smaller batches with an ideal of  \quotes{continuous flow,} where work is routinely moving through the system hence decreasing feature lead time. 
-
-\textit{Mismanaging the backlog} describes observed wastes (backlog inversion, duplicating work, capricious thrashing, and delaying necessary bug fixes) not covered by \textit{partially done work.}
+While we did observe a product manager starting too many features at once (as described in the \textit{mismanaging the backlog} waste section), we mostly observed work flowing in a relatively orderly fashion with minimal delay. Large amounts of waiting designs or stories would have been classified as \textit{mismanaging the backlog} waste.
 
 %Just-in-time production is antithetical to large batch sizes. In any continuous flow system, there is unfinished materials at each step. 
 
@@ -524,41 +499,37 @@ There is common ground between both models on reducing large batch sizes into sm
 
 %Since Pivotal engineers follow Test Driven Development / Behavior Driven Development, strive to get the tested code into the developer's master branch as quickly as possible, and release frequently, we did not observe the waste associated with partially done work. At any moment in time, an interaction designer is creating a future mock, a product manager is updating a future story, a developer is testing code that has not shipped. This describes the continuous flow of features to the customer. 
 
-\textbf{Rework} and \textbf{Defects}: In our model, \textit{rework} includes mistakes made by the product managers (in writing acceptance criteria), the interaction designers (in creating mockups) and the developers (in writing tests and code). Poor testing strategies, and delaying testing can cause rework. In Lean Software Development, \textit{defects} are the coding mistakes of developers. Therefore the two models align on \textit{defects} and our model broadens the waste definition with \textit{rework}. \textit{Rework} is a superset of \textit{defects}. 
+\textbf{Rework} and \textbf{Defects}: While both taxonomies agree on \textit{defects} being waste, our \textit{Rework} concept is a superset of \textit{defects}. \textit{Rework} includes mistakes made by the product managers (in writing acceptance criteria), the interaction designers (in creating mockups) and the developers (in writing tests and code). Poor testing strategies, and delaying testing can cause rework. Our definition of \textit{Rework} also distinguishes mistakes that could have been avoided from problems only obvious in hindsight. 
 
-\textbf{Mental workload} and \textbf{Task switching}: In our model, \textit{Mental workload} includes inefficient tools, suffering from technical debt, extra cognitive effort (inefficient development flow, sluething the code), and the reduction of cognitive capacity (emotional stress, cognitive load, and overload from context switching). In Lean Software Development, \textit{task switching} is the cost from trying to multitask or work on more than one task at a time. (Based on our analysis, task switching appears to be a cause, not a waste type.) The desire to have developers work on one thing at a time is common to both models. \textit{Cognitive hinderance} is a superset of \textit{task switching}. 
+\textbf{Extraneous cognitive load} and \textbf{Task switching}: In our model, \textit{Extraneous cognitive load} includes the extra effort required by complex stories,  inefficient tools, suffering from technical debt, inefficient development processes, and context switching. In Lean Software Development, \textit{task switching} is the cost from trying to multitask. (Based on our analysis, task switching appears to be a cause, not a waste type.) The desire to have developers work on one thing at a time is common to both models. \textit{Extraneous cognitive load} subsumes \textit{task switching}. 
 
-\textbf{Waiting} and \textbf{Delays}: In our model, \textit{waiting} includes delays from not having the needed information or resources to get one's work done as well as the cost of slow tests and unreliable tests. In Lean Software Development, \textit{delays} are \quotes{waiting for people to be available who are working in other areas} to provide needed information that is not available to the developers. \cite{PoppendieckConceptToCash}. Both wastes describe the cost of missing needing information. \textit{Waiting} is a superset of \textit{delays}.
+\textbf{Waiting} and \textbf{Delays}: In our model, \textit{waiting} includes delays from not having the needed information or resources to get one's work done as well as the cost of slow tests and unreliable tests. In Lean Software Development, \textit{delays} are \quotes{waiting for people to be available who are working in other areas} to provide needed information that is not available to the developers \cite{PoppendieckConceptToCash}. Both wastes describe the cost of missing needing information. \textit{Waiting} is a superset of \textit{delays}.
 
 \textbf{Knowledge loss} and \textbf{Relearning}:
-In our model, \textit{Knowledge loss} is the cost from members rolling off the team. In Lean Software Development, \textit{relearning} is \quotes{rediscovering something we once knew} \cite{PoppendieckConceptToCash}, which includes the cost of an individual not remembering a decision already made. The observed teams did not see forgetting as a waste.  Included in \textit{relearning} is failing to engage people in the development process. We did observe product managers having difficulty in involving certain stakeholders, which we include in the \textit{building the wrong feature or product} waste. \textit{Knowledge loss} focuses \textit{relearning} to simply regaining departed knowledge. 
+In our model, \textit{Knowledge loss} is the cost from members rolling off the team. In Lean Software Development, \textit{relearning} is \quotes{rediscovering something we once knew} \cite{PoppendieckConceptToCash}, which includes the cost of an individual not remembering a decision already made. The observed teams did not see forgetting as a waste.  Included in \textit{relearning} is failing to engage people in the development process. We did observe product managers having difficulty in involving some stakeholders, which we include in the \textit{building the wrong feature or product} waste. \textit{Knowledge loss} focuses \textit{relearning} to simply regaining departed knowledge. 
 \section{Results Evaluation and Quality Criteria}
 \label{ResultsEvaluation}
 While other factors may affect software engineering waste, we focus only on those that we observed during the study. Grounded Theory studies can be evaluated using the following criteria \cite{Charmaz, StolGroundedTheory}:
 
 \textbf{Credibility}: \quotes{Is there sufficient data to merit claims?}  This study relies on \durationOfResearchStudyPlural{} of participant-observation, \numberOfInterviews{} intensive open-ended interviews, and the agenda of one year's worth of retrospections. 
 
-\textbf{Originality}: \quotes{Do the categories offer new insights?}  This is the first study of waste in software development based on empirical evidence. Prior work is anchored in concepts from manufacturing which might force the model with preconceived ideas. 
+\textbf{Originality}: \quotes{Do the categories offer new insights?}  This is the first empirical study of waste in software development. It not only discovered new waste types but also supports and expands existing waste types that have not previously undergone rigorous empirical validation in a software engineering context. 
 
-\textbf{Resonance}: \quotes{Does the theory make sense to participants?} We presented the results to the organization. Seven participants reviewed the results and this paper. They indicated that the waste taxonomy resonates with their experience. \quotes{I have lived through these projects\ldots No other waste comes to mind.}  \quotes{These are pain points that we all felt. This covers what we learned on the projects.} This process produced no major changes, which is not surprising because participant observation mitigates resonance problems.
+\textbf{Resonance}: \quotes{Does the theory make sense to participants?} We presented the results to the organization. Seven participants reviewed the results and this paper. They indicated that the waste taxonomy resonates with their experience: \quotes{These are pain points that we all felt. This covers what we learned on the projects}; \quotes{I have lived through these projects\ldots No other waste comes to mind.} This process produced no major changes, which is not surprising because participant observation mitigates resonance problems.
 
-\textbf{Usefulness}: \quotes{Does the theory offer useful interpretations?} This study acknowledges software development wastes that are not identified in manufacturing. This study explains why certain behaviors, events, and actions can cause software engineering waste. This study provides a rich waste taxonomy for Value Stream Mapping in software development. 
+\textbf{Usefulness}: \quotes{Does the theory offer useful interpretations?} This study identifies software development wastes that are not identified in manufacturing and explains why certain behaviors, events, and actions can cause software engineering waste. It provides a rich waste taxonomy for identifying wastes in practice. %and for Value Stream Mapping. 
 
-This work analyzed software projects at the Silicon Valley office of Pivotal following Extreme Programming. From an \textbf{external validity} perspective, Grounded Theory is non-statistical, non-sampling research. The results, therefore, cannot be statistically generalized to a population. Rather, researchers and professionals can adapt the concepts and ideas to other contexts case-by-case.
+Regarding \textbf{external validity}, Grounded Theory is non-statistical, non-sampling research; therefore, the results cannot be statistically generalized to a population. Based on existing research and our experience, none of the identified wastes appear peculiar to Pivotal or Extreme Programming. However, Pivotal is a very effective organization which uses iterative development and has been concerned with eliminating waste for almost two decades. Organizations that are newer, less experienced, less concerned with waste, or use less iterative methods may experience additional waste types. For example \textit{waiting} waste manifests in organizations that hand feature documents between teams or use large batch sizes of features \cite{Ali2016, Khurum2014, Mujtaba2010}. Researchers and professionals should therefore take care to adapt our findings to their contexts case-by-case. 
 
-Finally, the results might be influenced by \textbf{researcher bias} or \textbf{prior knowledge bias}. A risk of the participant-observer technique is that the researcher may lose perspective and become biased by being a member of the team. While a participant-observer gains perspective an outsider cannot, an outside observer might see something a participant observer will miss. Similarly, while prior knowledge helps the researcher interpret events and select lines of inquiry, prior knowledge may also blind the researcher to alternative explanations \cite{GlaserIssues}. We mitigated these risks by recording interviews and having the second and third authors review the coding process and reviewed the detailed retro topics.
-
-Since Pivotal follows iterative software development, we did not observe wastes commonly associated with the waterfall approach. We know that \textit{waiting} waste is present in other organizations that hand feature documents from one team to another team or use large batch sizes of features \cite{Ali2016, Khurum2014, Mujtaba2010}.
-
-Pivotal has relied on Extreme Programming for almost two decades. While the observed teams  attempted to remove waste whenever possible, as a \quotes{lean} software development organization, there may be additional wastes not observed in this research study. 
+Finally, the results might be influenced by \textbf{researcher bias} or \textbf{prior knowledge bias}. During participant-observation, the researcher may lose perspective and become biased by being a member of the team. That is, while a participant-observer gains perspective an outsider cannot, an outside observer might see something a participant observer will miss. Similarly, while prior knowledge helps the researcher interpret events and select lines of inquiry, prior knowledge may also blind the researcher to alternative explanations \cite{GlaserIssues}. We mitigated these risks by recording interviews and having the second and third authors review the coding process.
 \section{Conclusion}
 \label{Conclusion}
-This paper present the first evidence-based taxonomy of software engineering waste, identifies numerous causes of waste and explores fundamental tensions related to specific waste types. Eight waste types are identified: building the wrong feature or product, mismanaging the backlog, rework, unnecessarily complex solutions, mental workload, waiting, knowledge loss, and ineffective communication. Each waste is illustrated with examples taken from observed projects at Pivotal, showing how the waste materializes, and in some cases how it is removed or eliminated. We also compare our proposed taxonomy to the one found in Lean Software Development.
+This paper presents the first evidence-based taxonomy of software engineering waste, identifies numerous causes of waste and explores fundamental tensions related to specific waste types. \numberOfWastes{} waste types are identified: building the wrong feature or product, mismanaging the backlog, rework, unnecessarily complex solutions, extraneous cognitive load, 
+psychological distress, waiting, knowledge loss, and ineffective communication. Each waste is illustrated with examples taken from observed projects at Pivotal, showing how the waste materializes, and in some cases how it is removed or eliminated. We also compare our taxonomy to Lean Software Development's waste taxonomy.
 
-The proposed taxonomy emerged from a Constructivist Grounded Theory research, including the collection and analysis of data coming from \durationOfResearchStudyPlural{} of participant-observation of  \numberOfObservedProjects{} software development projects, interviews of \numberOfInterviews{} software engineers, interaction designers, and product managers, as well as one year of retrospection topics. The analysis of the retrospection topics reveals that the observed Pivotal teams care very much about finding and eliminating wastes in their software development process. The retrospection topics are a treasure trove illustrating many different types of waste. 
+Our taxonomy emerged from a Constructivist Grounded Theory study, including the collection and analysis of data from \durationOfResearchStudyPlural{} of participant-observation of  \numberOfObservedProjects{} software development projects, interviews of \numberOfInterviews{} software engineers, interaction designers, and product managers, as well as one year of retrospection topics. The analysis of the retrospection topics reveals that the observed Pivotal teams care deeply about finding and eliminating waste in their software development processes. 
 
-While this research supports parts of the Lean Software Development waste taxonomy, our data suggests broadening most waste categories and introducing additional wastes not previously identified. As such, our taxonomy is more expressive and more accurately describes the observed data. To be clear, the Lean Software Development taxonomy of wastes was developed top-down, by mapping manufacturing wastes onto software development concepts. It was not empirically tested and therefore does not have the same epistemic status as our taxonomy, which was develop bottom-up from systematic observation of software projects. 
-
+While this research supports parts of the Lean Software Development waste taxonomy, it differs in three key ways: 1) it introduces two new waste categories: (\textit{unnecessarily complex solutions} and \textit{ineffective communication}); 2) it does not support LSD's \textit{Handoffs} waste category; 3) its waste categories are largely broader than LSD's. As such, our taxonomy is more expressive and more accurately describes the observed data. To be clear, the Lean Software Development's taxonomy of wastes was developed top-down, by mapping manufacturing wastes onto software development concepts. It was not empirically tested and therefore does not have the same epistemic status as our taxonomy, which was develop bottom-up from rigorous primary data collection and analysis. 
 
 Several avenues for future research have potential. Studying different kinds of projects in different organizations may reveal new types of waste, or improve our understanding of existing categories. Furthermore, understanding wastes and their causes is just the first step in devising techniques for reducing waste and mitigating its effects. We would also like to investigate how teams use feedback loops to identify, manage, and reduce waste. 
 
@@ -574,3 +545,28 @@ Several avenues for future research have potential. Studying different kinds of 
 \section*{Acknowledgement}
 Thanks to Ben Christel for his assistance in sorting retro topics and helping with the initial analysis. Thank you to Rob Mee, David Goudreau, Ryan Richard, and Zach Larson for making this research possible.
 
+
+
+
+\begin{table}[t]
+\renewcommand{\arraystretch}{1.5}
+\centering
+\caption{Comparison to Lean Software Development Waste V2}
+\label{LeanSoftwareDevelopmentComparisonTable2}
+\begin{tabular}{|p{1.57in}|p{1.57in}|}
+% \begin{tabular}{|l|l|} %dissertation size
+\hline
+Software Development Wastes           & Lean Software Development Wastes \\ \hline
+Building the wrong feature or product & Extra Features                            \\ \hline
+Mismanaging the backlog               & Partially Done Work                            \\ \hline
+Unnecessarily complex solutions                & Not described                             \\ \hline
+Rework                                & Defects                                   \\ \hline
+Extraneous Cognitive Load                 & Not described  \\ \hline
+Psychological Distress                             & Not described \\ \hline
+Knowledge loss                 & Relearning                            \\ \hline
+Waiting \& Multitasking                              & Delays                                    \\  
+                  & Task Switching  \\ \hline
+Ineffective communication             & Not described                             \\ \hline
+Not observed                          & Handoffs                                  \\ \hline
+\end{tabular}
+\end{table}
