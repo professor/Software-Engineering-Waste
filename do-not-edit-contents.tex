@@ -1,5 +1,6 @@
 % Sample apostrophy's to remove team's 
 
+
 \begin{abstract}
 \textit{Context:} Since software development is a complex socio-technical activity that involves coordinating different disciplines and skill sets, it provides ample opportunities for waste to emerge. Waste is any activity that produces no value for the customer or user.
 
@@ -120,12 +121,12 @@ Non-utilized Talent (added by \cite{ LikerToyotaWay})     & N/A                 
 \end{table}
 
 Adapting a taxonomy from a reference discipline (e.g. manufacturing) for a target discipline (e.g. software engineering) manifests at least four threats to validity: 
-\begin{itemize}
+\begin{enumerate}
   \item The target domain may include concepts (wastes) not found in the source domain. 
   \item The source domain may include concepts not found in the target domain.
   \item Concepts from the source domain may bias our perception of superficially similar but fundamentally different concepts in the target domain.
   \item The organization of concepts in the source domain may not fit the target domain (e.g., two or more manufacturing wastes might map into a single software engineering waste or vice versa). 
-\end{itemize}
+\end{enumerate}
 It is, therefore, incumbent upon researchers to empirically evaluate concepts, taxonomies, and theories adapted from reference disciplines. We are not aware of any direct empirical validation of the Lean Software Development waste taxonomy, which motivates the current study. 
 
 That said, several studies have used the Lean Software Development waste model. For example, Power and Conboy combine it with literature in manufacturing, lean production, product development, construction, and healthcare. They shift from using wastes of inefficiencies to impediments to flow \cite{PowerImpediments}.
@@ -247,7 +248,7 @@ We often stopped to record new insights. When the categories began to stabilize,
      &      & Retro Topic: Repeatedly hearing \quotes{This is due today} \\
      &      & Retro Topic: Long days \\
      &      & Retro Topic: Overtime \\
-     & \multicolumn{2}{l|}{Cause Property: Stressful encounters} \\
+     & \multicolumn{2}{l|}{Cause Property: Interpersonal or team conflict} \\
      &      & Retro Topic: Criticizing in public \\
      &      & Retro Topic: Difficult pairings \\
      &      & Retro Topic: Pairing fatigue                   \\
@@ -282,7 +283,7 @@ Backlog inversion \newline Working on too many features simultaneously \newline 
 Rework                                & The cost of altering delivered work that should have been done correctly but was not. & 
 Technical debt \newline
 Rejected stories (e.g. product manager rejects story implementation) \newline 
-No clear definition of done (ambiguous stories; second guessing design mocks) \newline Defects and bugs (poor testing strategy; no root-cause analysis on bugs)                                                                                                                                                                   \\ \hline
+No clear definition of done (ambiguous stories; second guessing design mocks) \newline Defects (poor testing strategy; no root-cause analysis on bugs)                                                                                                                                                                   \\ \hline
 Unnecessarily complex solutions  & The cost of creating a more complicated solution than necessary,  a missed opportunity to simplify features, user interface, or code.      & 
 Unnecessary feature complexity from the user's perspective \newline
 Unnecessary technical complexity (duplicating code, lack of interaction design reuse, overly complex technical design created up-front)
@@ -298,12 +299,12 @@ Poorly organized code
 Psychological distress & The costs of burdening the team with unhelpful stress. &  
 Low team morale \newline
 Rush mode \newline
-Stressful encounters
+Interpersonal or team conflict
 \\ \hline
 Waiting/multitasking                             & The cost of idle time, often hidden by multi-tasking. & Slow tests or unreliable tests \newline Unreliable acceptance environment \newline Missing information, people, or equipment \newline
 Context switching from delayed feedback                                                                                                                                                                                                                                                                          \\ \hline
 Knowledge loss & The cost of re-acquiring information that the team once knew. & 
-Knowledge loss from team churn \newline
+Team churn \newline
 Knowledge silos 
 \\ \hline
 Ineffective communication             & The cost of incomplete, incorrect, misleading, inefficient, or absent communication.                         & 
@@ -348,17 +349,18 @@ On Project Kvin, for example, the launch was delayed while the business fiddled 
 \subsection{Waste: Rework}
 From a Waterfall perspective, one might classify any revision of existing code as \quotes{rework.} This problematically fails to distinguish between situations where things could have been done right based on the information available then from situations where new information reveals a better approach. 
 
-Contrastingly, our participants classify revising work that should have been done correctly but was not as \textit{rework}, and improving existing work based on new information as \textit{new work}. \textit{Rework} wastes time and resources by definition. We observed numerous sources of \textit{rework} including technical debt, stories with no clear definition of done, defects in the code, poor testing strategy, ambiguous mock-ups, and rejected stories (e.g. a product manager rejects delivered work because the implementation does not satisfy the acceptance criteria).
+Contrastingly, our participants classify revising work that should have been done correctly but was not as \textit{rework}, and improving existing work based on new information as \textit{new work}. \textit{Rework} wastes time and resources by definition. We observed numerous sources of \textit{rework} including technical debt, defects in work products, poor testing strategy, rejected stories, stories with no clear definition of done, and ambiguous mock-ups .
  
-Technical debt refers to the risks of delaying needed technical work, by taking technical shortcuts, usually to meet a deadline \cite{McConnellTechnicalDebt}. These shortcuts are waste and often burdens the team later, as described in the \textit{extraneous cognitive load} waste. On Project Quattuor, engineers felt pressured to deliver stories quickly resulting in many weeks of \textit{rework} after the first release.
+Technical debt refers to the risks of delaying needed technical work, by taking technical shortcuts, usually to meet a deadline \cite{McConnellTechnicalDebt}. These shortcuts are waste and often burdens the team later, as described in the \textit{extraneous cognitive load} waste. On Project Quattuor, engineers felt pressured to deliver stories quickly and skipped refactoring, resulting in many weeks of \textit{rework} after the first release. 
 
-On Project Ses, the engineers showed a finished story to the interaction designer for feedback. The interaction designer pointed out a missing interaction, which was neither in the story nor the mock-up.
+Defects and bugs in the code, stories, mock-ups, and code result in \textit{rework}. On every project, we observed defects. On several occasions mistakes in stories and acceptance criteria resulted in engineering \textit{rewok}. On Project Quattuor, the interaction designers created mockups optimized for English, not the target language. After implementing the application, the team realized that the target language text needed more space than the English translations, requiring \textit{rework} for several design components. On Project Kvin, the interaction designer forgot to consider mobile phones when creating the mock-ups. After building a few screens, the team realized that the website did not work well on mobile devices requiring \textit{rework}.
 
-On Project Quattuor, the client delayed fixing of critical bugs until just before the release. Fixing one bug in the backend system had a cascading effect on the mobile applications, which expected the code to work a certain way. The team could have avoided \textit{rework} by fixing  the critical bug prior to the client code becoming dependent on it.
+%Poor testing strategy can lead to additional \textit{rework.} On Project Quattuor, the client delayed fixing of critical bugs until just before the release. Fixing one bug in the backend system had a cascading effect on the mobile applications, which expected the code to work a certain way. The team could have avoided \textit{rework} by fixing the critical bug prior to the client code becoming dependent on it.
 
-Also on Project Quattuor, the interaction designers created mockups optimized for English, not the target language. After implementing the application, the team realized that the target language text needed more space than the English translations, requiring rework for several design components. 
+Rejected stories---stories that a product manager rejects delivered work because the implementation does not satisfy the acceptance criteria---requires \textit{rework} as the developers need to fix the delivered work.
 
-On Project Kvin, the interaction designer forgot to consider mobile phones when creating the mock-ups. After building a few screens, the team realized that the website did not work well on mobile devices requiring \textit{rework}.
+Stories with no clear definition of done (e.g. stories with ambiguous acceptance criteria or ambiguous mock-ups) resulted in \textit{rework}. On Project Ses, the engineers showed a finished story to the interaction designer for feedback. The interaction designer pointed out a missing interaction, which was neither in the story nor the mock-up
+
 \subsection{Waste: Unnecessarily complex solutions}
 \textit{Unnecessarily complex solutions} can be caused by feature complexity, technical complexity, or lack of reuse. Unnecessary feature complexity wastes users' time as they struggle to understand how to use the system and achieve their objectives, e.g. requiring the user to fill in form fields not related to the task at hand. Some features bring unnecessary technical complexity since a simpler interaction design would have solved the same problem. %\sout{We observed a simple solution was to increase conversations with product, design, and engineering. On one project, an engineer shortened the feedback loop by daily checking-in with the interaction designer.} Unnecessary technical complexity similarly wastes developers' time by making code more difficult to build and maintain. 
 
@@ -401,7 +403,7 @@ On Project Quattuor, for example, the team rushed to release a fixed feature set
 \subsection{Waste: Waiting/multitasking}
 Having developers waiting around, working slowly, or working on low-priority features because something is preventing them from proceeding on high-priority features wastes their time and delays their projects. For example, we observed developers waiting on (or looking for) product managers and designers to clarify a story's acceptance criteria. On Project Quattuor, product managers started multitasking while accepting stories because the acceptance environment was unreliable. We also saw team members waiting around because of missing video-conferencing equipment. 
 
-Ohno described \textit{waiting} waste as hidden waste since people start working on the next job, instead of waiting \cite{OhnoToyotaProductionSystem}. To expose this waste, in Toyota Production System, when someone pulls the red cable, everyone stops, bringing attention to the waste. On Project Ses, it took 58 minutes to run the build locally and 17 minutes on the build machine due to parallelization on four machines. Team members would push code as a branch to the build machine instead of running tests locally. While the build machine ran the tests, the engineers would either wait or context switch onto different work. If the branch passed, some time later, they would merge their code into the team's code. If the branch failed, the engineers would decide either to finish the work that they were doing or to switch back and fix the issue. Some engineers found the context switching exhausting. This \quotes{solution} to avoid \textit{waiting} created \textit{extraneous cognitive load} waste.
+Ohno described \textit{waiting} waste as hidden waste since people start working on the next job, instead of waiting \cite{OhnoToyotaProductionSystem}. The Toyota Production system exposes \textit{waiting} waste by requiring someone to pull the red cable to halt the production line. On Project Ses, it took 58 minutes to run the build locally and 17 minutes on the build machine due to parallelization on four machines. Team members would push code as a branch to the build machine instead of running tests locally. While the build machine ran the tests, the engineers would either wait or context switch onto different work. If the branch passed, some time later, they would merge their code into the team's code. If the branch failed, the engineers would decide either to finish the work that they were doing or to switch back and fix the issue. Some engineers found the context switching exhausting. This \quotes{solution} to avoid \textit{waiting} created \textit{extraneous cognitive load} waste.
 
 \textbf{Tension: Wait, block, or guess.}
 When needed information is missing, engineers appear to have three options: 1) wait for the information; 2) suspend (block) the story and work on something else; 3) act without the information. The best option depends on how far into the story the pair is, how long they have to wait, and their confidence in their guess.
@@ -481,8 +483,8 @@ While several categories are analogous (Table \ref{LeanSoftwareDevelopmentCompar
 Software Development Wastes           & Lean Software Development Wastes \\ \hline
 Building the wrong feature or product & Extra features                            \\ \hline
 Mismanaging the backlog               & Partially done work                            \\ \hline
-Unnecessarily complex solutions                & Not described                             \\ \hline
 Rework                                & Defects                                   \\ \hline
+Unnecessarily complex solutions                & Not described                             \\ \hline
 Extraneous cognitive load                 & Not described  \\ \hline
 Psychological distress                             & Not described \\ \hline
 Waiting/multitasking                              & Delays                                    \\  
@@ -561,5 +563,6 @@ Several avenues for future research have potential. Studying different kinds of 
 %\sout{Based on the research from value stream mapping, the first step of waste reduction may be switching a software firm from a batch-and-pull process where a feature document is handed to a team to implement (e.g. a waterfall system) to a system where a small number of features are handed to a team (e.g. iterative software development.) Then introducing and reducing feedback loops to remove additional waste.}
 \section*{Acknowledgement}
 Thanks to Ben Christel for his assistance in sorting retro topics and helping with the initial analysis. Thank you to Rob Mee, David Goudreau, Ryan Richard, Zach Larson, Elisabeth Hendrickson, and Michael Schubert for making this research possible.
+
 
 
